@@ -1,0 +1,5 @@
+Dùng cú pháp parameterized {} trong logging (ví dụ: log.info("User: {}", userId)) tối ưu hơn so với nối chuỗi bằng dấu + vì:
+
+- Hiệu năng: Khi dùng {}, chuỗi log chỉ được dựng (string formatting) nếu mức log đó thực sự được bật. Nếu log level bị tắt, framework sẽ bỏ qua mà không tạo chuỗi → tiết kiệm CPU và bộ nhớ.
+- An toàn & rõ ràng: Tránh lỗi khi nối chuỗi phức tạp hoặc null. Logging framework sẽ tự xử lý việc chuyển đổi đối tượng sang chuỗi.
+- Dễ đọc & bảo trì: Cú pháp {} gọn gàng, dễ nhìn hơn so với nhiều dấu +, đặc biệt khi có nhiều biến.
